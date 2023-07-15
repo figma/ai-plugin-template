@@ -1,0 +1,12 @@
+{
+  "name": "ai-plugin-template",
+  "id": "ai-plugin-template",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "enableProposedApi": false,
+  "editorType": ["figma", "figjam"],
+  "networkAccess": {
+    "allowedDomains": ["*"],
+    "reasoning": "Internet access for local development."
+  }
+}

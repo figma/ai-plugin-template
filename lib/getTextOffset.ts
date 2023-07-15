@@ -16,7 +16,7 @@ export async function getTextOffset() {
           right: Math.max(acc.right, boundingBox.x + boundingBox.width),
         };
       },
-      { top: Infinity, right: -Infinity }
+      { top: Infinity, right: -Infinity },
     );
   });
 

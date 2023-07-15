@@ -29,7 +29,7 @@ Only respond with a poem, don't make the poem too long.`,
 // could use your api for any general purpose completion and leak the "secret sauce" of
 // your prompt.
 async function buildUserMessage(
-  req: Request
+  req: Request,
 ): Promise<ChatCompletionRequestMessage> {
   const body = await req.json();
 

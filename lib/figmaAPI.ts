@@ -33,7 +33,7 @@ class FigmaAPI {
    */
   run<T, U>(
     fn: (figma: PluginAPI, params: U) => Promise<T> | T,
-    params?: U
+    params?: U,
   ): Promise<T> {
     return new Promise((resolve, reject) => {
       const id = this.id++;
@@ -53,8 +53,8 @@ class FigmaAPI {
               new Error(
                 typeof message === "string"
                   ? message
-                  : "An error occurred in FigmaAPI.run()"
-              )
+                  : "An error occurred in FigmaAPI.run()",
+              ),
             );
           }
         }
@@ -70,7 +70,7 @@ class FigmaAPI {
           },
           pluginId: "*",
         },
-        "*"
+        "*",
       );
     });
   }

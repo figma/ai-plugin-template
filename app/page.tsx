@@ -36,6 +36,10 @@ export default function Plugin() {
     setCompletion("");
     const layers = await getTextForSelection();
 
+    if (!layers.length) {
+      return;
+    }
+
     const reader = await streamAIResponse({
       layers,
     });
@@ -55,6 +59,11 @@ export default function Plugin() {
   // text to the Figma canvas.
   const onStreamToCanvas = async () => {
     const layers = await getTextForSelection();
+
+    if (!layers.length) {
+      return;
+    }
+
     const reader = await streamAIResponse({
       layers,
     });
@@ -116,6 +125,9 @@ export default function Plugin() {
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-900 text-white">
       <h1 className="text-4xl font-bold mb-5 mt-2">Poem Generator</h1>
+      <div className="text-sm mb-5 text-gray-300">
+        Select a node to create a poem about the text inside of it.
+      </div>
       <div className="flex flex-row gap-2">
         <button
           onClick={onStreamToIFrame}

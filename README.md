@@ -17,6 +17,8 @@ This plugin is set up to use [Next.js](https://nextjs.org/).
 
 First create this template using create-next-app:
 
+> Note this won't work until this template is public. For now you can just clone the repo and create a new git repo.
+
 ```bash
 npx create-next-app@latest --example https://github.com/figma/ai-plugin-template/
 ```

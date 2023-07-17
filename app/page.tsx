@@ -67,6 +67,10 @@ export default function Plugin() {
       // figmaAPI.run is a helper that lets us run code in the figma plugin sandbox directly
       // from the iframe without having to post messages back and forth. For more info,
       // see /lib/figmaAPI.ts
+      //
+      // It is important to note that any variables that this function closes over must be
+      // specified in the second argument to figmaAPI.run. This is because the code is actually
+      // run in the figma plugin sandbox, not in the iframe.
       nodeID = await figmaAPI.run(
         async (figma, { nodeID, text, textPosition }) => {
           await figma.loadFontAsync({ family: "Inter", style: "Medium" });
@@ -95,7 +99,7 @@ export default function Plugin() {
 
           return node.id;
         },
-        { nodeID, text, textPosition },
+        { nodeID, text, textPosition }
       );
     };
 

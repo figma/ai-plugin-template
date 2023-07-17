@@ -35,6 +35,6 @@
     "concurrently": "^8.2.0"
   },
   "config": {
-    "siteURL": "wowza"
+    "siteURL": "https://test-ai-plugin-template.vercel.app/"
   }
 }

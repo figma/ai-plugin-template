@@ -50,7 +50,25 @@ The main files you'll want to edit are:
 
 ## Publishing your plugin
 
-TODO sawyer
+In this example we will be publishing the Next.js app to [Vercel](https://vercel.com/). You can also publish to any other hosting provider that supports Next.js.
+
+1. If you haven't already, push your code to a git repo on GitHub.
+2. Create an account on Vercel and connect your GitHub account.
+3. Deploy your app to Vercel. You can follow the guide (here)[https://vercel.com/docs/concepts/deployments/git].
+4. While deploying make sure to set the environment variable `OPENAI_API_KEY` to your OpenAI API key.
+   ![Photo of environment variable editor](https://static.figma.com/uploads/44c48dcad968599a771130c6a251b53b2442b1d0)
+5. Once your app is deployed you can update the `siteURL` section of your `package.json` file to point to the deployed URL. It will look something like `https://your-site-here.vercel.app/`
+
+```json
+"config": {
+  "siteURL": "https://your-site-here.vercel.app/"
+}
+```
+
+6. Run `npm run build` to create the production build of your plugin that points to your deployed URL.
+7. Test your plugin locally and make sure that it works after pointing to vercel.
+8. [Publish your plugin to community](https://help.figma.com/hc/en-us/articles/360042293394-Publish-plugins-to-the-Figma-Community)
+9. After publishing to community your plugin will update automatically when you push to your git repo.
 
 ## Learn More
 

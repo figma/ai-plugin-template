@@ -9,7 +9,8 @@
     "lint": "next lint",
     "build:plugin": "esbuild plugin/code.ts --bundle --target=es6 --loader:.svg=text --outfile=plugin/dist/code.js",
     "build:next": "next build",
-    "format": "prettier --write ."
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
   },
   "dependencies": {
     "@figma/plugin-typings": "*",

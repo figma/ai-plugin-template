@@ -87,7 +87,7 @@ const result = await figmaAPI.run(
     return figma.getNodeById(nodeId)?.name;
   },
   // Any variable you want to pass to the function must be passed as a parameter.
-  { nodeId }
+  { nodeId },
 );
 
 console.log(result); // "Page 1"

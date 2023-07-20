@@ -108,7 +108,7 @@ export default function Plugin() {
 
           return node.id;
         },
-        { nodeID, text, textPosition }
+        { nodeID, text, textPosition },
       );
     };
 

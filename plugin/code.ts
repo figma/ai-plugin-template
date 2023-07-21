@@ -5,7 +5,11 @@ figma.showUI(`<script>window.location.href = '${SITE_URL}'</script>`, {
   height: 700,
 });
 
-figma.ui.onmessage = async (message) => {
+figma.ui.onmessage = async (message, props) => {
+  if (props.origin !== SITE_URL) {
+    return;
+  }
+
   switch (message.type) {
     case "EVAL": {
       const fn = eval.call(null, message.code);

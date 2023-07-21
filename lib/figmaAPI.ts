@@ -38,6 +38,13 @@ class FigmaAPI {
     return new Promise((resolve, reject) => {
       const id = this.id++;
       const cb = (event: MessageEvent) => {
+        if (
+          event.origin !== "https://www.figma.com" &&
+          event.origin !== "https://staging.figma.com"
+        ) {
+          return;
+        }
+
         if (event.data.pluginMessage?.type === "EVAL_RESULT") {
           if (event.data.pluginMessage.id === id) {
             window.removeEventListener("message", cb);
@@ -60,17 +67,23 @@ class FigmaAPI {
         }
       };
       window.addEventListener("message", cb);
-      parent.postMessage(
-        {
-          pluginMessage: {
-            type: "EVAL",
-            code: fn.toString(),
-            id,
-            params,
-          },
-          pluginId: "*",
+
+      const msg = {
+        pluginMessage: {
+          type: "EVAL",
+          code: fn.toString(),
+          id,
+          params,
         },
-        "*",
+        pluginId: "*",
+      };
+
+      ["https://www.figma.com", "https://staging.figma.com"].forEach(
+        (origin) => {
+          try {
+            parent.postMessage(msg, origin);
+          } catch {}
+        },
       );
     });
   }

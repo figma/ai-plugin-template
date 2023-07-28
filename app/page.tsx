@@ -40,7 +40,7 @@ export default function Plugin() {
       figmaAPI.run(async (figma) => {
         figma.notify(
           "Please select a layer with text in it to generate a poem.",
-          { error: true }
+          { error: true },
         );
       });
       return;
@@ -70,7 +70,7 @@ export default function Plugin() {
       figmaAPI.run(async (figma) => {
         figma.notify(
           "Please select a layer with text in it to generate a poem.",
-          { error: true }
+          { error: true },
         );
       });
       return;
@@ -122,7 +122,7 @@ export default function Plugin() {
 
           return node.id;
         },
-        { nodeID, text, textPosition }
+        { nodeID, text, textPosition },
       );
     };
 

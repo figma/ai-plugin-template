@@ -82,7 +82,6 @@ export default function Plugin() {
       // run in the figma plugin sandbox, not in the iframe.
       nodeID = await figmaAPI.run(
         async (figma, { nodeID, text, textPosition }) => {
-          await figma.loadFontAsync({ family: "Inter", style: "Medium" });
           let node = figma.getNodeById(nodeID ?? "");
 
           // If the node doesn't exist, create it and position it to the right of the selection.
@@ -98,6 +97,9 @@ export default function Plugin() {
 
           const oldHeight = node.height;
 
+          await figma.loadFontAsync({ family: "Inter", style: "Medium" });
+          node.fontName = { family: "Inter", style: "Medium" };
+
           node.characters = text;
 
           // Scroll and zoom to the node if it's height changed (ex we've added a new line).
@@ -108,7 +110,7 @@ export default function Plugin() {
 
           return node.id;
         },
-        { nodeID, text, textPosition },
+        { nodeID, text, textPosition }
       );
     };
 

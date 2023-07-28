@@ -37,6 +37,12 @@ export default function Plugin() {
     const layers = await getTextForSelection();
 
     if (!layers.length) {
+      figmaAPI.run(async (figma) => {
+        figma.notify(
+          "Please select a layer with text in it to generate a poem.",
+          { error: true }
+        );
+      });
       return;
     }
 
@@ -61,6 +67,12 @@ export default function Plugin() {
     const layers = await getTextForSelection();
 
     if (!layers.length) {
+      figmaAPI.run(async (figma) => {
+        figma.notify(
+          "Please select a layer with text in it to generate a poem.",
+          { error: true }
+        );
+      });
       return;
     }
 

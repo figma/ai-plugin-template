@@ -52,7 +52,7 @@ In this example we will be publishing the Next.js app to [Vercel](https://vercel
 
 1. If you haven't already, push your code to a git repo on GitHub.
 2. Create an account on Vercel and connect your GitHub account.
-3. Deploy your app to Vercel. You can follow the guide (here)[https://vercel.com/docs/concepts/deployments/git].
+3. Deploy your app to Vercel. You can follow the guide [here](https://vercel.com/docs/concepts/deployments/git).
 4. While deploying make sure to set the environment variable `OPENAI_API_KEY` to your OpenAI API key.
    ![Photo of environment variable editor](https://static.figma.com/uploads/e41166e6a4e0d9c9c90bf662a609396ab7fe33cc)
 5. Once your app is deployed you can update the `siteURL` section of your `package.json` file to point to the deployed URL. It will look something like `https://your-site-here.vercel.app/`

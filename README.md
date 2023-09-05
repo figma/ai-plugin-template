@@ -104,4 +104,4 @@ A few things to note about this helper:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Figma Plugin API](https://www.figma.com/plugin-docs/) - learn about the Figma plugin API.
-- [OpenAI API](https://platform.openai.com/docs/guides/gpt) - learn about GPT apis.
+- [OpenAI API](https://platform.openai.com/docs/guides/gpt) - learn about GPT APIs.

@@ -1,18 +1,12 @@
-import {
-  ChatCompletionRequestMessage,
-  Configuration,
-  OpenAIApi,
-} from "openai-edge";
+import OpenAI from "openai";
+import { ChatCompletionMessageParam } from "openai/resources/chat";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 import { CompletionRequestBody } from "@/lib/types";
 
 // Create an OpenAI API client
-const config = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(config);
-
-export const runtime = "edge";
 
 // This is the instructions that GPT-4 will use to know how to respond. For more information on
 // the difference between a system message and a user message, see:
@@ -30,7 +24,7 @@ Only respond with a poem, don't make the poem too long.`,
 // your prompt.
 async function buildUserMessage(
   req: Request,
-): Promise<ChatCompletionRequestMessage> {
+): Promise<ChatCompletionMessageParam> {
   const body = await req.json();
 
   // We use zod to validate the request body. To change the data that is sent to the API,
@@ -47,7 +41,7 @@ async function buildUserMessage(
 
 export async function POST(req: Request) {
   // Ask OpenAI for a streaming completion given the prompt
-  const response = await openai.createChatCompletion({
+  const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     stream: true,
     temperature: 0,
